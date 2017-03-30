@@ -1,4 +1,4 @@
-# PostGREST
+# PostgREST
 
 Dockerized [PostgREST](https://postgrest.com)
 
