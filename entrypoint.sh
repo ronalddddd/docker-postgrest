@@ -11,6 +11,7 @@ DBUSER=${DBUSER:-${POSTGRES_ENV_POSTGRES_USER:-"postgres"}}
 DBPASS=${DBPASS:-${POSTGRES_ENV_POSTGRES_PASSWORD:-"postgres"}}
 DBPOOL=${DBPOOL:-"200"}
 PORT=${PORT:-"3000"}
+JWTSECRET=${JWTSECRET:"mysecret"}
 
 SCHEMA=${SCHEMA:-"public"}
 
@@ -24,6 +25,7 @@ cat > /etc/postgrest.conf <<-EOF
 db-uri = "postgres://${DBUSER}:${DBPASS}@${DBHOST}:${DBPORT}/${DBNAME}"
 db-schema = "${DBSCHEMA}"
 db-anon-role = "${ANONUSER}"
+jwt-secret = "${JWTSECRET}"
 EOF
 
 postgrest /etc/postgrest.conf
